@@ -3,7 +3,7 @@
 A responsive, multi-page personal portfolio website built to showcase my software engineering projects, technical skills, and professional experience. 
 
 ## Live Demo
-[[cesarsanchez.dev](https://cesarsanchez.dev/)](url)
+[cesarsanchez.dev](https://cesarsanchez.dev/)
 ## Tech Stack
 This project was built from scratch without heavy frameworks to demonstrate core frontend fundamentals:
 * **HTML5** for semantic structuring and accessibility.
