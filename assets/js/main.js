@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!isDeleting && charIndex === currentText.length) {
             // Pausing text before deleting text
-            setTimeout(() => (isDeleting = true), 2000)
+            setTimeout(() => (isDeleting = true), 1000)
         } else if (isDeleting && charIndex === 0){
             // Moving onto the next text on list
             isDeleting = false;
