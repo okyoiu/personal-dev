@@ -1,94 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesar Sanchez</title>
-    <link rel="icon" type="image/png" href="/images/developer-pic-modified.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cesar Sanchez | Software Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="assets/images/developer-pic-modified.png">
 </head>
 <body>
-    <header>
-        <h2><a href="/index.html" class="home-link">Cesar Sanchez</a></h2>
-        <nav>
-            <a href="/pages/projects.html">Projects</a>
-            <a href="/pages/about.html">About Me </a>
-        </nav>
-    </header>
 
-    <!-- introduction section -->
-    <section class="intro">
-        <div class="profile-container">
+  <nav>
+    <a href="#" class="logo">CS.</a>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#work">Projects</a>
+      <a href="mailto:cesar.sanc219@gmail.com">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <canvas id="waveCanvas"></canvas>
+    
+    <div class="hero-content">
+      <h1 class="huge-title">
+        Hi, I'm <span class="highlight">Cesar.</span><br>
+        I'm a <span id="typewriter"></span><span class="blinking-cursor">|</span>
+      </h1>
+      
+      <p class="hero-subtext">
+        Passionately creating innovative digital<br>
+        experiences, rooted in complex backend logic.
+      </p>
+    </div>
+
+  </header>
+  <section class="featured-about-section">
+    <div class="featured-about-container">
+        
+      <div class="about-left-wrapper">
             
-            <div class="text-content">
-                <h1>Hi! I'm <span style="color: #1865b7;">Cesar</span>,</h1>
-                <p>I'm an aspiring Software Engineer with a passion for programming. I'm currently a student at Texas A&M University building software, learning new tools, and writing code.</p>
-                
-                <div class="action-links">
-                    <a href="https://github.com/okyoiu" target="_blank" class="social-link" aria-label="GitHub">GitHub
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="https://x.com/okyoiu" target="_blank" class="social-link" aria-label="Twitter">Twitter
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/csanc18/?skipRedirect=true" target="_blank" class="social-link" aria-label="LinkedIn">LinkedIn
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                </div>
-            </div>
-
-            <img src="images/developer-pic.png" alt="Cesar Sanchez Profile" class="profile-pic">
-
+        <div class="vertical-social-dock">
+            <a href="https://www.linkedin.com/in/csanc18/" target="_blank" aria-label="LinkedIn" class="dock-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://x.com/okyoiu" target="_blank" aria-label="X (Twitter)" class="dock-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+          </a>
+            <a href="https://github.com/okyoiu" target="_blank" aria-label="GitHub" class="dock-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:cesar.sanc219@gmail.com" aria-label="Email" class="dock-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+            </a>
         </div>
-    </section>
 
-    <!-- featured project section -->
-        <section class="projects">
-            <h3>Featured Projects</h3>
-    
-            <div class="project-list">
-                <a href="https://github.com/okyoiu/pomodoro-timer" class="project-card">
-                    <div class="project-info">
-                        <h4>Pomodoro Mobile Development</h4>
-                        <p> Built using Expo and JavaScript, 
-                            it aims to deliver a functional, minimalist productivity tool while serving as a hands-on foundation for 
-                            building mobile applications.</p>
-                        <div class="tech-tags">
-                            <span>Javascript</span>
-                            <span>React-Native</span>
-                            <span>Mobile-App</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/okyoiu/custom-interpreter" class="project-card">
-                    <div class="project-info">
-                        <h4>Custom Interpreter</h4>
-                        <p>A hand-crafted, statically-typed scripting language interpreter built entirely from scratch in modern C++. 
-                            This project demonstrates systems-level programming, memory management, and compiler theory</p>
-                        <div class="tech-tags">
-                            <span>C/C++</span>
-                            <span>CMake</span>
-                        </div>    
-                    </div>
-                </a> <a href="https://github.com/tamucybersec" class="project-card">
-                    <div class="project-info">
-                        <h4>Security Logger & Automation</h4>
-                        <p>A Python-based internal tool utilizing a DevOps environment to automate administrative data tracking and member session logs.</p>
-                        <div class="tech-tags">
-                            <span>Python</span>
-                            <span>Javascript</span>
-                        </div>    
-                    </div>
-                </a>
-             </div>
-        </section>
-    
-        <footer>
-            <div class="footer-content">
-                <p>© 2026 Cesar Sanchez</p>
-                <a href="mailto:cesar.sanc219@gmail.com" class="footer-email">cesar.sanc219@gmail.com</a>
+        <div class="about-motivation-content">
+            <div class="section-header-container">
+                <div class="motivation-glyph"></div>
+                <h2 class="motivation-header">MOTIVATION</h2>
+                <div class="section-header-rule"></div>
             </div>
-        </footer>
-    </body>
+            <div class="motivation-text-body">
+                <p>I am a full-stack developer with a growing focus on backend development and engineering.</p>
+                <p>While I am still exploring where I want my career to evolve into, I've come to discover that building software is what excites me the most.</p>
+                <p>That's why I am currently dedicating my energy to improving both my technical execution and design sensitivity on the frontend/backend side.</p>
+                <p>I look forward to being able to grow my skills alongside great engineers!</p>
+            </div>
+        </div>
+        
+      </div> <div class="about-image-container">
+          <img src="assets/images/developer-pic.png" alt="César's Professional Portrait" class="featured-portrait">
+      </div>
+        
+    </div>
+  </section>
+<!-- WORK EXPERIENCE TIMELINE -->
+<section id="experience" class="section-container">
+  <div class="section-header">
+    <h2>Work Experience</h2>
+    <span>(02)</span>
+  </div>
+
+  <div class="timeline">
+    
+    <div class="timeline-item active">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-header">
+          <div class="timeline-date">02/26 - Current</div>
+          <h3 class="timeline-title">Rollins Engineering Solutions</h3>
+          <p class="timeline-role">Associate Software Engineer Intern</p>
+        </div>
+        <ul class="timeline-details">
+          <li>Designing and implementing scalable backend systems to support complex logic and data flow.</li>
+          <li>Collaborating across teams to ensure clean frontend execution and seamless API integration.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-header">
+          <div class="timeline-date">08/24 - Current</div>
+          <h3 class="timeline-title">Texas A&M University</h3>
+          <p class="timeline-role">Team Coordinator</p>
+        </div>
+        <ul class="timeline-details">
+          <li>Managing and coordinating a team of over 50 tutors for the university's tutoring services program.</li>
+          <li>Developing streamlined scheduling processes and maintaining consistent communication across departments.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SELECTED PROJECTS SECTION -->
+  <section id="work" class="section-container">
+    <div class="section-header">
+      <h2>Selected work</h2>
+      <span>(04)</span>
+    </div>
+
+    <div class="list-container">
+      <a href="https://github.com/okyoiu/Mobile-Productivity-Framework" class="list-row">
+        <span class="row-title">Mobile Development App</span>
+        <span class="row-category">Typescript / React</span>
+        <span class="row-arrow">↗</span>
+      </a>
+
+      <a href="https://github.com/okyoiu/CoreLang-Interpreter" class="list-row">
+        <span class="row-title">CoreLang Interpreter</span>
+        <span class="row-category">C++ / Systems</span>
+        <span class="row-arrow">↗</span>
+      </a>
+      
+      <a href="https://github.com/okyoiu/Investment-Portfolio-Management-Dashboard" class="list-row">
+        <span class="row-title">Financial Dashboard</span>
+        <span class="row-category">React / Auth0</span>
+        <span class="row-arrow">↗</span>
+      </a>
+
+      <a href="https://github.com/tamucybersec" class="list-row">
+        <span class="row-title">Security Logger</span>
+        <span class="row-category">Python / Automation</span>
+        <span class="row-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-about">
+        <p>I'm a Computer Science student at Texas A&M University.
+        I love working with complex backend logic and executing a clean frontend experience. Let's Connect!</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Cesar Sanchez - 2026</span>
+      <a href="#">Back to top ↑</a>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
