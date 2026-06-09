@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cesar Sanchez | Contact</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../contact.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="../assets/images/developer-pic-modified.png">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="logo">CS.</a>
+    <div class="nav-links">
+      <a href="../index.html#experience">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="contact-hero">
+    <!-- Dot-grid canvas lives inside the hero so it only covers this section -->
+    <canvas id="dotCanvas"></canvas>
+    <a href="../index.html" class="back-link">← Back to home</a>
+
+    <div class="contact-hero-inner">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-label">Get in touch</span>
+      </div>
+      <h1 class="contact-page-title">
+        Let's build<br>
+        <span class="highlight">something.</span>
+      </h1>
+      <p class="contact-page-subtitle">
+        Whether it's a role, a collab, or just a question — I'm always happy to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT GRID -->
+  <section class="contact-section">
+    <div class="contact-grid">
+
+      <!-- LEFT: FORM -->
+      <div class="contact-form-col">
+        <div class="form-label-row">
+          <span class="form-label-text">Send a message</span>
+          <div class="form-label-line"></div>
+        </div>
+
+        <form id="contactForm" novalidate>
+          <div class="field-group">
+            <label class="field-label" for="from_name">Your name</label>
+            <input
+              type="text"
+              id="from_name"
+              name="from_name"
+              class="field-input"
+              placeholder="Jane Doe"
+              autocomplete="name"
+              required
+            />
+            <span class="field-error" id="err-name"></span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="reply_to">Email address</label>
+            <input
+              type="email"
+              id="reply_to"
+              name="reply_to"
+              class="field-input"
+              placeholder="jane@example.com"
+              autocomplete="email"
+              required
+            />
+            <span class="field-error" id="err-email"></span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="field-input"
+              placeholder="What's this about?"
+              required
+            />
+            <span class="field-error" id="err-subject"></span>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              class="field-input field-textarea"
+              placeholder="Tell me what you're working on, or just say hi."
+              rows="5"
+              required
+            ></textarea>
+            <span class="field-error" id="err-message"></span>
+          </div>
+
+          <button type="submit" class="send-btn" id="sendBtn">
+            <span class="send-btn-text">Send message</span>
+            <span class="send-btn-icon">↗</span>
+          </button>
+
+          <div class="form-status" id="formStatus" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- RIGHT: INFO + FUN FACTS -->
+      <div class="contact-info-col">
+
+        <!-- Direct links -->
+        <div class="info-block">
+          <span class="info-block-label">Or reach me directly</span>
+          <div class="direct-links">
+            <a href="mailto:cesar.sanc219@gmail.com" class="direct-link">
+              <div class="direct-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+              </div>
+              <div class="direct-link-body">
+                <span class="direct-link-title">Email</span>
+                <span class="direct-link-value">cesar.sanc219@gmail.com</span>
+              </div>
+              <span class="direct-link-arrow">↗</span>
+            </a>
+            <a href="https://www.linkedin.com/in/csanc18/" target="_blank" class="direct-link">
+              <div class="direct-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </div>
+              <div class="direct-link-body">
+                <span class="direct-link-title">LinkedIn</span>
+                <span class="direct-link-value">/in/csanc18</span>
+              </div>
+              <span class="direct-link-arrow">↗</span>
+            </a>
+            <a href="https://github.com/okyoiu" target="_blank" class="direct-link">
+              <div class="direct-link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div class="direct-link-body">
+                <span class="direct-link-title">GitHub</span>
+                <span class="direct-link-value">@okyoiu</span>
+              </div>
+              <span class="direct-link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Fun facts -->
+        <div class="info-block">
+          <span class="info-block-label">A few things about me</span>
+          <div class="facts-list">
+
+            <div class="fact-item">
+              <div class="fact-glyph">01</div>
+              <div class="fact-body">
+                <p class="fact-text">I am proud to say that I grew up in the state of Texas, where I first got into tech by breaking things and figuring out why.</p>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <div class="fact-glyph">02</div>
+              <div class="fact-body">
+                <p class="fact-text">Outside of coding, I have been a musician for over 6+ years and have loved to play and hear amazing songs. My current favorite artists is "Bruno Mars".</p>
+              </div>
+            </div>
+
+            <div class="fact-item">
+              <div class="fact-glyph">03</div>
+              <div class="fact-body">
+                <p class="fact-text">When I'm not coding, I'm probably watching F1, playing Pickleball or down a rabbit hole about something entirely unrelated to CS — lately its been basketball.</p>
+              </div>
+            </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Availability badge -->
+        <div class="availability-strip">
+          <span class="avail-dot"></span>
+          <span class="avail-text">Open to new opportunities — internships &amp; full-time roles</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top-rule">
+      <span class="footer-rule-label">Let's Connect</span>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--bio">
+        <a href="#" class="footer-logo">CS.</a>
+        <p class="footer-bio">Computer Science student at Texas A&M. I love complex backend logic and clean frontend execution.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/csanc18/" target="_blank" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://x.com/okyoiu" target="_blank" class="footer-social-link" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://github.com/okyoiu" target="_blank" class="footer-social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="mailto:cesar.sanc219@gmail.com" class="footer-social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--nav">
+        <span class="footer-col-label">Navigate</span>
+        <div class="footer-nav">
+          <a href="../index.html" class="footer-nav-link">Home</a>
+          <a href="../index.html#experience" class="footer-nav-link">Experience</a>
+          <a href="projects.html" class="footer-nav-link">Projects</a>
+          <a href="contact.html" class="footer-nav-link">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col footer-col--game">
+        <div class="ttt-wrapper">
+          <div class="ttt-header">
+            <span class="footer-col-label">Take a break</span>
+            <div class="ttt-score-row">
+              <span class="ttt-score-pill active" id="ttt-score-x">X — <span id="score-x">0</span></span>
+              <span class="ttt-score-divider">·</span>
+              <span class="ttt-score-pill" id="ttt-score-o">O — <span id="score-o">0</span></span>
+            </div>
+          </div>
+          <div class="ttt-status" id="ttt-status">Your turn — X</div>
+          <div class="ttt-board" id="ttt-board" role="grid" aria-label="Tic-tac-toe board">
+            <button class="ttt-cell" data-i="0" aria-label="Cell 1"></button>
+            <button class="ttt-cell" data-i="1" aria-label="Cell 2"></button>
+            <button class="ttt-cell" data-i="2" aria-label="Cell 3"></button>
+            <button class="ttt-cell" data-i="3" aria-label="Cell 4"></button>
+            <button class="ttt-cell" data-i="4" aria-label="Cell 5"></button>
+            <button class="ttt-cell" data-i="5" aria-label="Cell 6"></button>
+            <button class="ttt-cell" data-i="6" aria-label="Cell 7"></button>
+            <button class="ttt-cell" data-i="7" aria-label="Cell 8"></button>
+            <button class="ttt-cell" data-i="8" aria-label="Cell 9"></button>
+          </div>
+          <button class="ttt-reset" id="ttt-reset">New game</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Cesar Sanchez — 2026</span>
+      <a href="#" class="footer-back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/game.js"></script>
+  <script src="../assets/js/contact.js"></script>
+</body>
+</html>
