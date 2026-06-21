@@ -13,9 +13,18 @@ const ALL_PROJECTS = [
       desc: "A high-performance C++ pathfinding microservice holding 1.4 million OpenStreetMap nodes in memory. Uses a custom Dijkstra's algorithm to calculate true physical routes, visualized instantly through a React and Leaflet frontend.",
       tags: ["C++17", "React", "Microservices", "Algorithms"],
       categories: ["full-stack", "systems"],
-      link: "https://github.com/okyoiu/Meridian", // Update with your actual GitHub link
-      image: "../assets/images/MERIDIAN_DEMO.png", // Ensure you save your screenshot with this name
+      link: "https://github.com/okyoiu/Meridian", 
+      image: "../assets/images/MERIDIAN_DEMO.png",
       imageAlt: "Meridian Routing Engine Demo"
+    },
+    {
+      title: "Rollins Engineering Platform",
+      desc: "Architected the official full-stack website for Rollins Engineering Solutions, a non-profit aerospace organization. Built a highly scalable frontend utilizing Astro and React to cleanly abstract UI elements, integrated seamlessly with a custom backend server. This project currently serves as their live, public-facing platform.",
+      tags: ["Astro", "React", "Full-Stack", "System Architecture"],
+      categories: ["full-stack", "web", "mobile", "backend"],
+      link: "https://github.com/rollins-engineering/rollins-frontend-server",
+      image: "../assets/images/rollins-webpage.png",
+      imageAlt: "Rollins Engineering Solutions Website"
     },
     {
       title: "Core Language Interpreter",
