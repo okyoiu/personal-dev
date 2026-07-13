@@ -12,7 +12,8 @@
 
   <nav>
     <a href="#" class="logo">CS.</a>
-      <div class="nav-links">
+    <span class="nav-divider"></span>
+    <div class="nav-links">
       <a href="#experience">Experience</a>
       <a href="components/projects.html">Projects</a>
       <a href="components/contact.html">Contact</a>
@@ -58,10 +59,9 @@
         </div>
 
         <div class="about-motivation-content">
-            <div class="section-header-container">
-                <div class="motivation-glyph"></div>
-                <h2 class="motivation-header">MOTIVATION</h2>
-                <div class="section-header-rule"></div>
+            <div class="motivation-head">
+                <span class="block-eyebrow">About</span>
+                <h2 class="motivation-title">Motivation <span class="motivation-num">(01)</span></h2>
             </div>
             <div class="motivation-text-body">
                 <p>I am a full-stack developer with a growing focus on backend development and engineering.</p>
@@ -79,9 +79,12 @@
   </section>
 <!-- WORK EXPERIENCE TIMELINE -->
 <section id="experience" class="section-container">
-  <div class="section-header">
-    <h2>Relevant Work Experience</h2>
-    <span>(02)</span>
+  <div class="block-head">
+    <div class="block-head-left">
+      <span class="block-eyebrow">Career</span>
+      <h2 class="block-title">Relevant Work Experience</h2>
+    </div>
+    <span class="block-num">(02)</span>
   </div>
 
   <div class="timeline">
@@ -123,16 +126,16 @@
 <section id="work" class="work-section">
  
   <!-- Section label row -->
-  <div class="work-label-row">
-    <div class="work-label-left">
-      <div class="work-rule"></div>
-      <span class="work-eyebrow">Selected Work</span>
+  <div class="block-head">
+    <div class="block-head-left">
+      <span class="block-eyebrow">Portfolio</span>
+      <h2 class="block-title">Selected Work</h2>
     </div>
-    <span class="work-number">(03)</span>
+    <span class="block-num">(03)</span>
   </div>
  
   <!-- ── FEATURED (HERO) PROJECT ─────────────────────────── -->
-  <a class="feat-card" href="https://github.com/okyoiu/Mobile-Productivity-Framework" target="_blank">
+  <a class="feat-card" href="https://github.com/okyoiu/StrataEngine" target="_blank">
  
     <!-- Large image fill -->
     <div class="feat-img-wrap">
@@ -157,7 +160,7 @@
       <div class="feat-bottom">
         <div class="feat-text">
           <h3 class="feat-title">StrataEngine</h3>
-          <p class="feat-desc">A data-oriented 2D industrial automation simulation that was written using C++. Writing the code, memory was optimized and logic conditions were met </p>
+          <p class="feat-desc">A data-oriented 2D industrial-automation simulation written in C++20, built around a cache-friendly memory layout and a tight systems core for performance.</p>
         </div>
         <div class="feat-cta-wrap">
           <span class="feat-link-label">https://github.com/okyoiu/StrataEngine</span>
@@ -195,7 +198,7 @@
     <!-- Card 3 -->
     <a class="sec-card" href="https://github.com/okyoiu/CoreLang-Interpreter" target="_blank">
       <div class="sec-img-wrap">
-        <img src="assets/images/project_one_Demo.png" alt="Core Language Interpreter" class="sec-img">
+        <img src="assets/images/project3_creditByHaqr.png" alt="Core Language Interpreter" class="sec-img">
         <div class="sec-img-overlay"></div>
       </div>
       <div class="sec-body">
@@ -208,8 +211,8 @@
           <span class="sec-tag">Interpreter</span>
           <span class="sec-tag">Google Test</span>
         </div>
-        <h3 class="feat-title">Mobile Productivity Framework</h3>
-        <p class="feat-desc">A cross-platform mobile app built to streamline personal productivity. Features task management, scheduling, and local-first data persistence.</p>
+        <h3 class="sec-title">Core Language Interpreter</h3>
+        <p class="sec-desc">A memory-safe interpreter built with a custom recursive-descent parser and AST — a hands-on dive into compiler theory and systems-level C/C++.</p>
       </div>
     </a>
  
