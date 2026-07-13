@@ -79,7 +79,7 @@ const ALL_PROJECTS = [
   const loadCount  = document.getElementById("load-count");
 
   // ─── BUILD A CARD ────────────────────────────────────────────────────────
-  function buildCard(p, isNew = false) {
+  function buildCard(p, globalIndex, isNew = false) {
     const a = document.createElement("a");
     a.className = "proj-card" + (isNew ? " new-card" : "");
     a.href = p.link;
@@ -91,19 +91,28 @@ const ALL_PROJECTS = [
       ? `<img src="${p.image}" alt="${p.imageAlt}">`
       : `<div class="proj-thumb-placeholder">${p.title.slice(0, 2).toUpperCase()}</div>`;
 
+    // Recruiter-friendly meta: discipline label, card index, real repo path
+    const idx = String(globalIndex + 1).padStart(2, "0");
+    const category = (p.categories[0] || "project").replace("-", " ");
+    const repoPath = p.link.replace("https://github.com/", "");
+
     a.innerHTML = `
       <div class="proj-thumb">
         ${thumbHTML}
         <div class="proj-overlay">
-          <button class="proj-overlay-btn">View on GitHub ↗</button>
+          <span class="proj-overlay-btn">View on GitHub ↗</span>
         </div>
       </div>
       <div class="proj-body">
-        <div class="proj-tags">${tagsHTML}</div>
+        <div class="proj-top-row">
+          <span class="proj-category">${category}</span>
+          <span class="proj-index">${idx}</span>
+        </div>
         <div class="proj-title">${p.title}</div>
         <div class="proj-desc">${p.desc}</div>
+        <div class="proj-tags">${tagsHTML}</div>
         <div class="proj-footer">
-          <span class="proj-link">github.com/okyoiu</span>
+          <span class="proj-link">${repoPath}</span>
           <span class="proj-arrow">↗</span>
         </div>
       </div>
@@ -115,7 +124,7 @@ const ALL_PROJECTS = [
   function renderBatch(isNew = false) {
     const slice = filteredProjects.slice(shownCount, shownCount + BATCH);
     slice.forEach((p, i) => {
-      const card = buildCard(p, isNew);
+      const card = buildCard(p, shownCount + i, isNew);
       if (isNew) card.style.animationDelay = `${i * 0.07}s`;
       grid.appendChild(card);
     });
@@ -158,6 +167,15 @@ const ALL_PROJECTS = [
   }
 
   // ─── FILTER BUTTONS ──────────────────────────────────────────────────────
+  // Show how many projects live behind each filter before you click it
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    const f = btn.dataset.filter;
+    const n = f === "all"
+      ? ALL_PROJECTS.length
+      : ALL_PROJECTS.filter(p => p.categories.includes(f)).length;
+    btn.innerHTML = `${btn.textContent.trim()} <span class="filter-count">${n}</span>`;
+  });
+
   document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
