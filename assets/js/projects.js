@@ -17,7 +17,16 @@ const ALL_PROJECTS = [
       image: "../assets/images/MERIDIAN_DEMO.png",
       imageAlt: "Meridian Routing Engine Demo"
     },
-    {
+  {
+    title: "StrataEngine (Tessera)",
+    desc: "Architected a data-oriented 2D industrial automation simulation that was written using C++. Writing the code memory was optimized and logic conditions were met. ",
+    tags: ["Data-Oriented Design", "C/C++", "Systems Programming"],
+    categories: ["systems"],
+    link: "https://github.com/okyoiu/StrataEngine",
+    image: "../assets/images/teserra-png.png",
+    imageAlt: "Interpreter Photo"
+  },
+  {
       title: "Rollins Engineering Platform",
       desc: "Architected the official full-stack website for Rollins Engineering Solutions, a non-profit aerospace organization. Built a highly scalable frontend utilizing Astro and React to cleanly abstract UI elements, integrated seamlessly with a custom backend server. This project currently serves as their live, public-facing platform.",
       tags: ["Astro", "React", "Full-Stack", "System Architecture"],
@@ -26,7 +35,7 @@ const ALL_PROJECTS = [
       image: "../assets/images/rollins-webpage.png",
       imageAlt: "Rollins Engineering Solutions Website"
     },
-    {
+  {
       title: "Core Language Interpreter",
       desc: "Demonstrates systems-level programming, memory management, and compiler theory. Uses a custom Recursive Descent Parser and a memory-safe Abstract Syntax Tree.",
       tags: ["Interpreter Architecture", "C/C++", "Google Test"],
