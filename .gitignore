@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Impeccable: per-machine settings and generated working files
+.impeccable/config.local.json
+.impeccable/mockups/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/build/
+
+# Locally installed agent skills (reinstall from skills-lock.json)
+.agents/
+.claude/skills/
+.claude/settings.local.json
+
+# Taste skill: inspector screenshots
+.taste-skill/inspect/

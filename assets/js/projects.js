@@ -1,193 +1,150 @@
-const ALL_PROJECTS = [
-    {
-      title: "Mobile Productivity Framework",
-      desc: "A cross-platform mobile app built to streamline personal productivity. Features task management, scheduling, and local-first data persistence.",
-      tags: ["TypeScript", "React Native", "Mobile"],
-      categories: ["mobile"],
-      link: "https://github.com/okyoiu/Mobile-Productivity-Framework",
-      image: "../assets/images/project_one_Demo.png",
-      imageAlt: "Mobile Productivity Framework Demo"
-    },
-    {
-      title: "Meridian Routing Engine",
-      desc: "A high-performance C++ pathfinding microservice holding 1.4 million OpenStreetMap nodes in memory. Uses a custom Dijkstra's algorithm to calculate true physical routes, visualized instantly through a React and Leaflet frontend.",
-      tags: ["C++17", "React", "Microservices", "Algorithms"],
-      categories: ["full-stack", "systems"],
-      link: "https://github.com/okyoiu/Meridian", 
-      image: "../assets/images/MERIDIAN_DEMO.png",
-      imageAlt: "Meridian Routing Engine Demo"
-    },
+// Every project on the site lives here. The home page shows the featured
+// ones; components/projects.html shows them all with filters.
+//   kind:  the small line under the name (the projects page shows tags there)
+//   note:  the handwritten caption under the preview
+//   image: a file in assets/images/, or null for a written card
+const PROJECTS = [
   {
-    title: "StrataEngine (Tessera)",
-    desc: "Architected a data-oriented 2D industrial automation simulation that was written using C++. Writing the code memory was optimized and logic conditions were met. ",
-    tags: ["Data-Oriented Design", "C/C++", "Systems Programming"],
+    title: "StrataEngine",
+    kind: "Systems · C++20",
+    note: "cache-friendly by design",
+    desc: "A data-oriented 2D industrial automation simulation in C++20, built around a cache-friendly memory layout and a tight systems core.",
+    tags: ["C/C++", "Data-oriented design", "Systems programming"],
     categories: ["systems"],
     link: "https://github.com/okyoiu/StrataEngine",
-    image: "../assets/images/teserra-png.png",
-    imageAlt: "Interpreter Photo"
+    image: "teserra-png.webp",
+    featured: true,
   },
   {
-      title: "Rollins Engineering Platform",
-      desc: "Architected the official full-stack website for Rollins Engineering Solutions, a non-profit aerospace organization. Built a highly scalable frontend utilizing Astro and React to cleanly abstract UI elements, integrated seamlessly with a custom backend server. This project currently serves as their live, public-facing platform.",
-      tags: ["Astro", "React", "Full-Stack", "System Architecture"],
-      categories: ["full-stack", "web", "mobile", "backend"],
-      link: "https://github.com/rollins-engineering/rollins-frontend-server",
-      image: "../assets/images/rollins-webpage.png",
-      imageAlt: "Rollins Engineering Solutions Website"
-    },
+    title: "Meridian",
+    kind: "Systems · C++17 + React",
+    note: "1.4M nodes, all in RAM",
+    desc: "A C++ pathfinding microservice that holds 1.4 million OpenStreetMap nodes in memory and runs a custom Dijkstra to find real routes, drawn on a React and Leaflet map.",
+    tags: ["C++17", "React", "Microservices", "Algorithms"],
+    categories: ["full-stack", "systems"],
+    link: "https://github.com/okyoiu/Meridian",
+    image: "MERIDIAN_DEMO.webp",
+    featured: true,
+  },
   {
-      title: "Core Language Interpreter",
-      desc: "Demonstrates systems-level programming, memory management, and compiler theory. Uses a custom Recursive Descent Parser and a memory-safe Abstract Syntax Tree.",
-      tags: ["Interpreter Architecture", "C/C++", "Google Test"],
-      categories: ["systems"],
-      link: "https://github.com/okyoiu/CoreLang-Interpreter",
-      image: "../assets/images/project3_creditByHaqr.png",
-      imageAlt: "Interpreter Photo"
-    },
-    {
-      title: "Investment Management Dashboard",
-      desc: "A dashboard for consumers to track spending and secure their spending needs with graphs and charts to guide users for a more detailed banking experience.",
-      tags: ["React/JavaScript", "Django", "Tailwind CSS"],
-      categories: ["web", "backend"],
-      link: "https://github.com/okyoiu/Investment-Portfolio-Management-Dashboard",
-      image: "../assets/images/project_two_demo.jpeg",
-      imageAlt: "Portfolio Management Website"
-    },
-    {
-      title: "Vanilla JavaScript Project Collection",
-      desc: "A comprehensive archive of small-scale frontend applications built to master core web technologies. Demonstrates proficiency in DOM manipulation, asynchronous programming, event handling, and responsive design.",
-      tags: ["JavaScript", "HTML5", "CSS3", "DOM Manipulation"],
-      categories: ["frontend"],
-      link: "https://github.com/okyoiu/javascript-projects",
-      image: null, 
-      imageAlt: "JavaScript Mini-Projects Collection Demo"
-    }
-  ];
+    title: "CoreLang Interpreter",
+    kind: "Systems · C/C++",
+    note: "parser written by hand",
+    desc: "An interpreter with a hand-written recursive descent parser and a memory-safe abstract syntax tree, tested with Google Test.",
+    tags: ["C/C++", "Interpreter design", "Google Test"],
+    categories: ["systems"],
+    link: "https://github.com/okyoiu/CoreLang-Interpreter",
+    image: "project3_creditByHaqr.webp",
+    featured: true,
+  },
+  {
+    title: "Rollins Engineering",
+    kind: "Full-stack · Astro + React",
+    note: "it's live, go look",
+    desc: "The official site for Rollins Engineering Solutions, a non-profit aerospace organization: an Astro and React frontend on a custom backend server. It's their live, public site.",
+    tags: ["Astro", "React", "Full-stack", "System architecture"],
+    categories: ["full-stack", "web", "mobile", "backend"],
+    link: "https://github.com/rollins-engineering/rollins-frontend-server",
+    image: "rollins-webpage.webp",
+    featured: true,
+  },
+  {
+    title: "Mobile Productivity",
+    kind: "Mobile · React Native",
+    note: "local-first by design",
+    desc: "A cross-platform app for tasks and scheduling, with local-first data so it works without a connection.",
+    tags: ["TypeScript", "React Native", "Mobile"],
+    categories: ["mobile"],
+    link: "https://github.com/okyoiu/Mobile-Productivity-Framework",
+    image: "project_one_Demo.webp",
+    featured: true,
+  },
+  {
+    title: "Investment Dashboard",
+    kind: "Web · Django + React",
+    note: "built with Django & React",
+    desc: "A dashboard for tracking spending, with graphs and charts that give a clearer picture of where the money goes.",
+    tags: ["React", "Django", "Tailwind CSS"],
+    categories: ["web", "backend"],
+    link: "https://github.com/okyoiu/Investment-Portfolio-Management-Dashboard",
+    image: "project_two_demo.webp",
+  },
+  {
+    title: "JavaScript Collection",
+    kind: "Web · Vanilla JS",
+    note: "where I learned the basics",
+    desc: "Small frontend apps built to learn the core of the web: DOM work, async code, events and responsive layout.",
+    tags: ["JavaScript", "HTML", "CSS"],
+    categories: ["web"],
+    link: "https://github.com/okyoiu/javascript-projects",
+    image: null,
+  },
+];
 
-  // ─── STATE ───────────────────────────────────────────────────────────────
-  const BATCH = 3;
-  let activeFilter = "all";
-  let shownCount = 0;
-  let filteredProjects = [];
+PROJECTS.forEach((p) => console.assert(p.title && p.link && p.categories.length, "Project needs a title, link and category:", p));
 
-  // ─── DOM REFS ────────────────────────────────────────────────────────────
-  const grid       = document.getElementById("proj-grid");
-  const loadBtn    = document.getElementById("load-more-btn");
-  const loadArea   = document.getElementById("load-more-area");
-  const endState   = document.getElementById("end-state");
-  const countLabel = document.getElementById("count-label");
-  const loadCount  = document.getElementById("load-count");
+// Renders into <div data-index="featured|all" data-images="path/to/images/">
+document.querySelectorAll("[data-index]").forEach((index) => {
+  const base = index.dataset.images;
+  const full = index.dataset.index === "all";
+  let shown = [];
 
-  // ─── BUILD A CARD ────────────────────────────────────────────────────────
-  function buildCard(p, globalIndex, isNew = false) {
-    const a = document.createElement("a");
-    a.className = "proj-card" + (isNew ? " new-card" : "");
-    a.href = p.link;
-    a.target = "_blank";
+  // The row crossing the middle of the screen takes the preview, so long lists keep it in step
+  const io = "IntersectionObserver" in window &&
+    new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && activate(e.target.dataset.i)),
+      { rootMargin: "-45% 0px -50% 0px" });
 
-    const tagsHTML = p.tags.map(t => `<span class="proj-tag">${t}</span>`).join("");
-
-    const thumbHTML = p.image
-      ? `<img src="${p.image}" alt="${p.imageAlt}">`
-      : `<div class="proj-thumb-placeholder">${p.title.slice(0, 2).toUpperCase()}</div>`;
-
-    // Recruiter-friendly meta: discipline label, card index, real repo path
-    const idx = String(globalIndex + 1).padStart(2, "0");
-    const category = (p.categories[0] || "project").replace("-", " ");
-    const repoPath = p.link.replace("https://github.com/", "");
-
-    a.innerHTML = `
-      <div class="proj-thumb">
-        ${thumbHTML}
-        <div class="proj-overlay">
-          <span class="proj-overlay-btn">View on GitHub ↗</span>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-top-row">
-          <span class="proj-category">${category}</span>
-          <span class="proj-index">${idx}</span>
-        </div>
-        <div class="proj-title">${p.title}</div>
-        <div class="proj-desc">${p.desc}</div>
-        <div class="proj-tags">${tagsHTML}</div>
-        <div class="proj-footer">
-          <span class="proj-link">${repoPath}</span>
-          <span class="proj-arrow">↗</span>
-        </div>
-      </div>
-    `;
-    return a;
+  function render(list) {
+    shown = list;
+    if (io) io.disconnect();
+    index.innerHTML = `
+      <ol class="index-list">${list.map((p, i) => `
+        <li class="index-row" style="--i:${i}" data-i="${i}">
+          <a class="index-link" href="${p.link}" target="_blank" rel="noopener" data-label="${p.categories[0]}">
+            ${p.image ? `<img class="index-thumb" src="${base + p.image}" alt="" loading="lazy">` : ""}
+            <span class="index-name">${p.title}</span>
+            <span class="index-kind">${full ? p.tags.join(" · ") : p.kind}</span>
+          </a>
+          ${full ? `<p class="index-desc">${p.desc}</p>` : ""}
+        </li>`).join("")}
+      </ol>
+      <figure class="index-frame" aria-hidden="true">${list.map((p, i) => p.image
+        ? `<img src="${base + p.image}" alt="" data-i="${i}" loading="lazy">`
+        : `<p class="index-empty" data-i="${i}">${p.title}</p>`).join("")}
+        <span class="bbox bbox--tag-in" style="--x:5%; --y:6%; --w:90%; --h:88%"><span class="tag"><span class="tag-model"></span></span></span>
+        <figcaption class="index-note hand on-ground"></figcaption>
+      </figure>`;
+    activate("0");
+    if (io) index.querySelectorAll(".index-row").forEach((row) => io.observe(row));
   }
 
-  // ─── RENDER BATCH ────────────────────────────────────────────────────────
-  function renderBatch(isNew = false) {
-    const slice = filteredProjects.slice(shownCount, shownCount + BATCH);
-    slice.forEach((p, i) => {
-      const card = buildCard(p, shownCount + i, isNew);
-      if (isNew) card.style.animationDelay = `${i * 0.07}s`;
-      grid.appendChild(card);
-    });
-    shownCount += slice.length;
-    updateUI();
+  // i is a data-i string, so it compares straight against dataset values
+  function activate(i) {
+    if (index.querySelector(".index-row.is-active")?.dataset.i === i) return;
+    index.querySelectorAll(".index-row").forEach((row) => row.classList.toggle("is-active", row.dataset.i === i));
+    // A fresh copy of the box replays its lock-on animation; the label is the project's first category
+    const box = index.querySelector(".index-frame .bbox");
+    const copy = box.cloneNode(true);
+    copy.querySelector(".tag-model").textContent = shown[i]?.categories[0] ?? "";
+    box.replaceWith(copy);
+    index.querySelectorAll(".index-frame > [data-i]").forEach((pic) => pic.classList.toggle("is-on", pic.dataset.i === i));
+    index.querySelector(".index-note").textContent = shown[i]?.note ?? "";
   }
 
-  // ─── UPDATE UI STATE ─────────────────────────────────────────────────────
-  function updateUI() {
-    const total = filteredProjects.length;
-    countLabel.textContent = `(${String(total).padStart(2, "0")})`;
-    loadCount.textContent = `Showing ${shownCount} of ${total}`;
+  const pick = (e) => { const row = e.target.closest(".index-row"); if (row) activate(row.dataset.i); };
+  index.addEventListener("pointerover", pick);
+  index.addEventListener("focusin", pick);
 
-    if (shownCount >= total) {
-      loadArea.style.display = "none";
-      setTimeout(() => {
-        endState.style.display = "flex";
-        requestAnimationFrame(() => endState.classList.add("visible"));
-      }, 200);
-    } else {
-      loadArea.style.display = "flex";
-      endState.classList.remove("visible");
-      endState.style.display = "none";
-    }
-  }
-
-  // ─── APPLY FILTER ────────────────────────────────────────────────────────
-  function applyFilter(filter) {
-    activeFilter = filter;
-    filteredProjects = filter === "all"
-      ? ALL_PROJECTS
-      : ALL_PROJECTS.filter(p => p.categories.includes(filter));
-
-    grid.innerHTML = "";
-    shownCount = 0;
-    endState.classList.remove("visible");
-    endState.style.display = "none";
-
-    renderBatch(false);
-  }
-
-  // ─── FILTER BUTTONS ──────────────────────────────────────────────────────
-  // Show how many projects live behind each filter before you click it
-  document.querySelectorAll(".filter-btn").forEach(btn => {
-    const f = btn.dataset.filter;
-    const n = f === "all"
-      ? ALL_PROJECTS.length
-      : ALL_PROJECTS.filter(p => p.categories.includes(f)).length;
-    btn.innerHTML = `${btn.textContent.trim()} <span class="filter-count">${n}</span>`;
-  });
-
-  document.querySelectorAll(".filter-btn").forEach(btn => {
+  // Filter buttons only exist on the projects page
+  const buttons = document.querySelectorAll(".filter-btn");
+  buttons.forEach((btn) => {
+    const matches = (p) => btn.dataset.filter === "all" || p.categories.includes(btn.dataset.filter);
+    btn.insertAdjacentHTML("beforeend", ` <span class="filter-count">${PROJECTS.filter(matches).length}</span>`);
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      applyFilter(btn.dataset.filter);
+      buttons.forEach((b) => b.setAttribute("aria-pressed", b === btn));
+      render(PROJECTS.filter(matches));
     });
   });
 
-  // ─── LOAD MORE ───────────────────────────────────────────────────────────
-  loadBtn.addEventListener("click", () => {
-    renderBatch(true);
-  });
-
-  // ─── INITIAL RENDER ──────────────────────────────────────────────────────
-  applyFilter("all");
+  render(full ? PROJECTS : PROJECTS.filter((p) => p.featured));
+});
