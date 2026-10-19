@@ -19,6 +19,7 @@
   /* A near-black ground, paper-white ink, and the model's green */
   --ground: #111111;
   --ground-2: #1c1c1b;       /* one tone step up: quiet fills */
+  --ground-3: #242422;       /* the top bar once scrolled: a step above both the ground and the bands */
   --ink: #f1f0ed;            /* text on the ground */
   --muted: #a3a29d;          /* secondary text on the ground, 7:1 */
   --paper: #ecebe6;          /* handwriting ink and the switch */
@@ -43,6 +44,7 @@
   --gutter: clamp(1rem, 2vw, 1.5rem);
   --section: clamp(6rem, 12vw, 11rem);
   --maxw: 90rem;
+  --bar-h: 4.5rem;           /* the sticky top bar; sticky elements below it start past it */
 
   /* Motion */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -57,6 +59,7 @@ html {
   background: var(--ground);
   color-scheme: dark;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--bar-h) + 1rem);   /* #experience lands below the bar, not under it */
   scrollbar-color: #3a3a38 var(--ground);
 }
 
@@ -81,7 +84,7 @@ p { text-wrap: pretty; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 .skip {
-  position: absolute; left: var(--margin); top: -8rem; z-index: 10;   /* well above the page until focused */
+  position: absolute; left: var(--margin); top: -8rem; z-index: 30;   /* well above the page until focused */
   padding: 0.6rem 1rem; background: var(--ink); color: var(--ground);
 }
 .skip:focus { top: 1rem; }
@@ -113,18 +116,31 @@ p { text-wrap: pretty; }
 .link:hover { text-underline-offset: 0.35em; }
 
 
-/* 3. Top bar --------------------------------------------------------------- */
+/* 3. Top bar: follows the page; the model's box marks where you are -------- */
 .topbar {
+  position: sticky; top: 0; z-index: 20;
   display: flex; justify-content: space-between; align-items: center;
-  max-width: var(--maxw);
-  margin-inline: auto;
-  padding: 1.5rem var(--margin);
+  min-height: var(--bar-h);
+  padding-inline: max(var(--margin), calc((100% - var(--maxw)) / 2 + var(--margin)));
+  background: var(--ground);
+  transition: background 0.3s;
 }
+.topbar.is-scrolled { background: var(--ground-3); }   /* its own tone step once the page runs beneath it */
 .wordmark { font-weight: 500; text-decoration: none; }
-.topnav { display: flex; gap: clamp(1.25rem, 3vw, 2.5rem); }
-.topnav a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.topnav { position: relative; display: flex; gap: clamp(0.25rem, 1.2vw, 1rem); }
+.topnav a { padding: 0.45rem 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .topnav a:hover,
+.topnav a.is-here,
 .topnav a[aria-current="page"] { color: var(--ink); }
+/* One box for the whole nav; main.js sets --x/--w from the tab it marks */
+.nav-box {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: var(--w, 0); transform: translateX(var(--x, 0));
+  border: 2px solid var(--accent);
+  opacity: 0;
+  pointer-events: none;
+}
+.topnav.has-box .nav-box { opacity: 1; }
 
 
 /* 4. Hero: the detection readout ------------------------------------------- */
@@ -231,7 +247,7 @@ p { text-wrap: pretty; }
   column-gap: var(--gutter);
   padding-block: clamp(4rem, 8vw, 7rem);
 }
-.xp-head { grid-row: 1 / span 2; position: sticky; top: 3rem; align-self: start; }
+.xp-head { grid-row: 1 / span 2; position: sticky; top: calc(var(--bar-h) + 1.5rem); align-self: start; }
 .xp-head h2 { font-size: var(--s-large); }
 .xp-head p { margin-top: 1rem; color: var(--muted); }
 .xp-head .xp-where { margin-top: 2.5rem; color: var(--ink); }
@@ -304,7 +320,7 @@ p { text-wrap: pretty; }
 .index-desc { max-width: 54ch; padding-bottom: 1.75rem; }
 
 .index-frame {
-  position: sticky; top: 15vh;
+  position: sticky; top: max(15vh, calc(var(--bar-h) + 1.5rem));
   align-self: start;
   aspect-ratio: 16 / 10;    /* close to the screenshots' own shapes (1.56 to 1.85) */
 }
@@ -353,7 +369,7 @@ p { text-wrap: pretty; }
   align-items: start;
   padding-top: var(--section);
 }
-.about .letter-face { position: sticky; top: 3rem; width: min(100%, 26rem); margin: 0; }
+.about .letter-face { position: sticky; top: calc(var(--bar-h) + 1.5rem); width: min(100%, 26rem); margin: 0; }
 .about .letter { width: auto; padding-top: 0; }
 
 /* Contact page: the letter beside four photos, each labelled twice
@@ -538,8 +554,9 @@ p { text-wrap: pretty; }
 .motion [data-reveal].is-in > :nth-child(4) { transition-delay: 240ms; }
 .motion [data-reveal].is-in > :nth-child(n + 5) { transition-delay: 320ms; }
 
-/* The experience box glides between roles */
+/* The experience box glides between roles; the nav box glides between tabs */
 .motion .track { transition: transform 0.6s var(--ease), height 0.6s var(--ease); }
+.motion .nav-box { transition: transform 0.5s var(--ease), width 0.5s var(--ease), opacity 0.3s; }
 
 /* Boxes below the hero lock on when their block is revealed, not at page load */
 .motion [data-reveal]:not(.is-in) .bbox { animation: none; }
@@ -596,5 +613,6 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 520px) {
-  .topnav { gap: 1rem; font-size: var(--s-small); }
+  .topnav { gap: 0; font-size: var(--s-small); }
+  .topnav a { padding: 0.45rem 0.6rem; }
 }

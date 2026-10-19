@@ -38,3 +38,25 @@ if (roles) {
   }
   new ResizeObserver(() => lock()).observe(roles);   // re-measure when fonts load or the width changes
 }
+
+// Top bar: a tone step once the page scrolls under it, and the model's box on the tab for where you
+// are. Subpages mark their own tab; the home page marks the tab whose section crosses mid-screen.
+const nav = document.querySelector(".topnav");
+const bar = nav.parentElement;
+const navBox = nav.querySelector(".nav-box");
+let here = nav.querySelector('[aria-current="page"]');
+const mark = (tab = here) => {
+  here = tab;
+  nav.classList.toggle("has-box", !!tab);
+  nav.querySelectorAll("a").forEach((a) => a.classList.toggle("is-here", a === tab));
+  if (tab) { navBox.style.setProperty("--x", `${tab.offsetLeft}px`); navBox.style.setProperty("--w", `${tab.offsetWidth}px`); }
+};
+addEventListener("scroll", () => bar.classList.toggle("is-scrolled", scrollY > 8), { passive: true });
+if (!here && "IntersectionObserver" in window) {
+  // every top-level section counts, so the hero, "Right now" and the letter clear the box
+  const spy = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) mark(e.target.id ? nav.querySelector(`[data-nav="${e.target.id}"]`) : null);
+  }), { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main > section").forEach((s) => spy.observe(s));
+}
+new ResizeObserver(() => mark()).observe(nav);   // re-measure when fonts load or the width changes
